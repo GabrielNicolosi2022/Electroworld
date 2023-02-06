@@ -1,0 +1,21 @@
+.div-cart {
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.cart {
+  height: 7vmin;
+  align-content: center;
+}
+span {
+  padding: 0px 4px;
+  background-color: blue;
+  border: 3px solid blue;
+  border-radius: 25px 25px;
+  font-size: 0.5em;
+  font-weight: bold;
+  color: lightyellow;
+}
