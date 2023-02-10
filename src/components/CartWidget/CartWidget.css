@@ -7,10 +7,14 @@
   align-items: center;
 }
 .cart {
+  position: relative;
+  top: 1.5vh;
   height: 7vmin;
   align-content: center;
 }
 span {
+  position: absolute;
+  right: 50px;
   padding: 0px 4px;
   background-color: blue;
   border: 3px solid blue;

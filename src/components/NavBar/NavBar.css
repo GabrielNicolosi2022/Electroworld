@@ -1,17 +1,21 @@
 .NavBar {
   position: relative;
-  width: 100vw;
-  min-height: 25vh;
+  /* padding-top: 10px; */
+  width: 100%;
+  min-height: 15vh;
   padding-bottom: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  background-color: #a69bef;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 .logo {
+  position: relative;
+  top: 1.5vh;
   width: 15vw;
   display: flex;
 }

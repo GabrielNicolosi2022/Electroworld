@@ -5,7 +5,7 @@
 -Incorporar alguna libreria con estilos(opcional)
 */
 // Funcionalidad: Renderizar una barra de menu (NavBar).
-import logo from "../../logo-meraki.svg";
+import logo from "../../logo-electro-world-bt.png";
 import "./NavBar.css";
 import Categories from "../Categories/Categories";
 import CartWidget from "../CartWidget/CartWidget";

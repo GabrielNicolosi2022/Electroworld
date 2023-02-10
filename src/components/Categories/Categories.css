@@ -17,5 +17,8 @@ a {
   padding: 0 200px;
   }
 .categorias__items {
+  position: relative;
+    top: 1.5vh;
+
   padding: 0px 10px;
 }

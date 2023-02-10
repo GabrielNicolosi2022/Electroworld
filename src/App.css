@@ -1,13 +1,13 @@
 .App-header,
 .App-main {
   position: relative;
-  width: 99.8vw;
+  width: 100%;
 }
-.App-header {
-  background-color: #f56139;
-}
+/* .App-header {
+  
+} */
 .App-main {
-  top: -2.9vh;
-  height: 100vh;
-  background-color: cyan;
+  top: -22px;
+  height: 120vh;
+  background-color: #e3dfdf;
 }
