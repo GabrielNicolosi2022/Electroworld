@@ -1,5 +1,5 @@
 // creo lista de categorias para el NavBar
-import "./Categories.css"
+import './Categories.css';
 export default function Categories() {
   return (
     <ul className="categorias">
