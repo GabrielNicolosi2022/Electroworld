@@ -24,7 +24,7 @@ export const products = [
   {
     id: 3,
     name: 'Impresora',
-    description: 'Laser',
+    description: 'InkJet',
     quality: 'Premium',
     price: '150 USD',
     stock: '8',

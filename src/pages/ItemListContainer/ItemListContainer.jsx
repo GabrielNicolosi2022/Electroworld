@@ -8,7 +8,7 @@ export default function ItemListContainer({ greeting }) {
   const getProducts = new Promise((res, rej) => {
     setTimeout(() => {
       res(products);
-    }, 3000);
+    }, 2000);
   });
 
   useEffect(() => {
