@@ -8,8 +8,8 @@ export const products = [
     quality: 'FHD',
     price: '157 USD',
     stock: '10',
-    category: 'Screen',
-    image: './img/smart-tv-32.webp',
+    category: 'TV',
+    image: './img/smart-tv-32-bgn.png',
   },
   {
     id: 2,
@@ -18,8 +18,8 @@ export const products = [
     quality: 'Full',
     price: '130 USD',
     stock: '7',
-    category: 'kitchen',
-    image: './img/microondas.jpg',
+    category: 'Electro',
+    image: './img/microondas-bgn.png',
   },
   {
     id: 3,
@@ -28,8 +28,8 @@ export const products = [
     quality: 'Premium',
     price: '150 USD',
     stock: '8',
-    category: 'Screen',
-    image: './img/impresora.jpeg',
+    category: 'Informatica',
+    image: './img/impresora-bgn.png',
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ export const products = [
     quality: 'UHD',
     price: '120 USD',
     stock: '10',
-    category: 'Screen',
+    category: 'Informatica',
     image: './img/monitor.png',
   },
   {
@@ -48,7 +48,7 @@ export const products = [
     quality: 'Premium',
     price: '135 USD',
     stock: '6',
-    category: 'Kitchen',
-    image: './img/horno-electrico.webp',
+    category: 'Electro',
+    image: './img/horno-electrico-bgn.png',
   },
 ];

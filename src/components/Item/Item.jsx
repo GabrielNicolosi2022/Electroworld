@@ -1,5 +1,6 @@
 import './style.css';
 const Item = ({ product }) => {
+  // console.log(product);
   return (
     <div className="item">
       <img alt={product.name} src={product.image} width="100px" />
