@@ -9,7 +9,7 @@ export const products = [
     price: '157 USD',
     stock: '10',
     category: 'tv',
-    image: './img/smart-tv-32-bgn.png',
+    image: '/img/smart-tv-32-bgn.png',
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ export const products = [
     price: '130 USD',
     stock: '7',
     category: 'electro',
-    image: './img/microondas-bgn.png',
+    image: '/img/microondas-bgn.png',
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ export const products = [
     price: '150 USD',
     stock: '8',
     category: 'informatica',
-    image: './img/impresora-bgn.png',
+    image: '/img/impresora-bgn.png',
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ export const products = [
     price: '120 USD',
     stock: '10',
     category: 'informatica',
-    image: './img/monitor.png',
+    image: '/img/monitor.png',
   },
   {
     id: 5,
@@ -49,6 +49,6 @@ export const products = [
     price: '135 USD',
     stock: '6',
     category: 'electro',
-    image: './img/horno-electrico-bgn.png',
+    image: '/img/horno-electrico-bgn.png',
   },
 ];

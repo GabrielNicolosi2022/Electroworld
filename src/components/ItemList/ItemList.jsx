@@ -1,28 +1,17 @@
 import './style.css';
 import Item from '../Item/Item';
-import ItemDetailContainer from '../../pages/ItemDetailContainer/ItemDetailContainer';
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 const ItemList = ({ productsList }) => {
   // console.log(productsList);
-  const [productoSeleccionado, setProductoSeleccionado] = useState('');
-  // console.log(productoSeleccionado);
   return (
-    <div>
-      <div className="itemList">
-        {productsList.map((producto) => (
-          <div
-            onClick={() => setProductoSeleccionado(producto)}
-            key={producto.id}
-          >
+    <div className="itemList">
+      {productsList.map((producto) => (
+        <div key={producto.id}>
+          <Link to={`/item/${producto.id}`}>
             <Item product={producto} />
-          </div>
-        ))}
-      </div>
-      {productoSeleccionado !== '' && (
-        <div>
-          <ItemDetailContainer prodSel={productoSeleccionado} />
+          </Link>
         </div>
-      )}
+      ))}
     </div>
   );
 };

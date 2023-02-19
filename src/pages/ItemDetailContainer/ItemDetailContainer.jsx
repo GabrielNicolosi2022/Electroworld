@@ -1,30 +1,32 @@
 import { useEffect, useState } from 'react';
-import './ItemDetailContainer.css';
+import { useParams } from 'react-router-dom';
+import { products } from '../../data/Products';
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
-const ItemDetailContainer = ({ prodSel }) => {
-    
-  const [item, setItem] = useState(prodSel);
-// console.log(prodSel);
-  const getItem = new Promise((res, rej) => {
+
+const ItemDetailContainer = () => {
+  const { id } = useParams();
+  const [detailObject, setDetailObject] = useState({});
+  const getProduct = new Promise((res, rej) => {
     setTimeout(() => {
-      res(item);
-    }, 2000);
+      const findProduct = products.find((item) => item.id == id);
+
+      res(findProduct);
+    }, 1000);
   });
+
   useEffect(() => {
-    getItem
+    getProduct
       .then((response) => {
         // console.log(response);
-        setItem(response);
+        setDetailObject(response);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
-
   return (
-    <div className="ItemDetailContainer">
-      {/* COMENTANDO TODO SÍ LO RETORNA... POR QUÉ? */}
-      <ItemDetail item={prodSel} />
+    <div>
+      <ItemDetail detail={detailObject} />
     </div>
   );
 };
