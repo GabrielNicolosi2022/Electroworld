@@ -4,7 +4,7 @@ import ItemDetail from '../../components/ItemDetail/ItemDetail';
 const ItemDetailContainer = ({ prodSel }) => {
     
   const [item, setItem] = useState(prodSel);
-console.log(item);
+// console.log(prodSel);
   const getItem = new Promise((res, rej) => {
     setTimeout(() => {
       res(item);
@@ -19,11 +19,11 @@ console.log(item);
       .catch((error) => {
         console.log(error);
       });
-  }, [prodSel]);
+  }, []);
 
   return (
     <div className="ItemDetailContainer">
-      <ItemDetail item={item} />
+      <ItemDetail item={prodSel} />
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { useState } from 'react';
 const ItemList = ({ productsList }) => {
   // console.log(productsList);
   const [productoSeleccionado, setProductoSeleccionado] = useState('');
-  console.log(productoSeleccionado);
+  // console.log(productoSeleccionado);
   return (
     <div>
       <div className="itemList">
