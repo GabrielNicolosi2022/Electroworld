@@ -8,7 +8,7 @@ export const products = [
     quality: 'FHD',
     price: '157 USD',
     stock: '10',
-    category: 'TV',
+    category: 'tv',
     image: './img/smart-tv-32-bgn.png',
   },
   {
@@ -18,7 +18,7 @@ export const products = [
     quality: 'Full',
     price: '130 USD',
     stock: '7',
-    category: 'Electro',
+    category: 'electro',
     image: './img/microondas-bgn.png',
   },
   {
@@ -28,7 +28,7 @@ export const products = [
     quality: 'Premium',
     price: '150 USD',
     stock: '8',
-    category: 'Informatica',
+    category: 'informatica',
     image: './img/impresora-bgn.png',
   },
   {
@@ -38,7 +38,7 @@ export const products = [
     quality: 'UHD',
     price: '120 USD',
     stock: '10',
-    category: 'Informatica',
+    category: 'informatica',
     image: './img/monitor.png',
   },
   {
@@ -48,7 +48,7 @@ export const products = [
     quality: 'Premium',
     price: '135 USD',
     stock: '6',
-    category: 'Electro',
+    category: 'electro',
     image: './img/horno-electrico-bgn.png',
   },
 ];

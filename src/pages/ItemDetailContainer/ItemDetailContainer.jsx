@@ -23,6 +23,7 @@ const ItemDetailContainer = ({ prodSel }) => {
 
   return (
     <div className="ItemDetailContainer">
+      {/* COMENTANDO TODO SÍ LO RETORNA... POR QUÉ? */}
       <ItemDetail item={prodSel} />
     </div>
   );
