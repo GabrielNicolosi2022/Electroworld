@@ -1,15 +1,19 @@
 import './ItemDetail.css';
 import ItemCount from '../../components/ItemCount/ItemCount';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 function ItemDetail({ detail }) {
   const navigate = useNavigate();
+
+  const { addItem } = useContext(CartContext);
+
   const [counter, setCount] = useState(0);
 
-  const addCart = (event) => {
-    event.preventDefault();
-    console.log({ ...detail, quantity: counter });
-  };
+  // const addCart = (event) => {
+  //   event.preventDefault();
+  //   console.log({ ...detail, quantity: counter });
+  // };
   return (
     <>
       <div className="itemDetail">
@@ -28,7 +32,7 @@ function ItemDetail({ detail }) {
         <button onClick={() => navigate('/')} className="common-btn">
           Seguir comprando
         </button>
-        <button onClick={addCart} className="cart-btn">
+        <button onClick={() => addItem(detail, counter)} className="cart-btn">
           Agregar al carrito
         </button>
         <button onClick={() => navigate('/cart')} className="common-btn">

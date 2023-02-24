@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 const ItemListContainer = ({ greeting }) => {
   const [productList, setProductList] = useState([]);
   const { categoryId } = useParams();
-  console.log(categoryId);
+  // console.log(categoryId);
   const getProducts = new Promise((res, rej) => {
     if (categoryId) {
       const filterProducts = products.filter(
@@ -24,7 +24,7 @@ const ItemListContainer = ({ greeting }) => {
   useEffect(() => {
     getProducts
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setProductList(response);
       })
       .catch((error) => {
