@@ -17,13 +17,4 @@ function App() {
     </BrowserRouter>
   );
 }
-// <div className="App">
-//   <header className="App-header">
-//     <NavBar />
-//   </header>
-//   <main className="App-main">
-//     <ItemListContainer greeting="en breve podrá verla" />
-//   </main>
-// </div>
-
 export default App;

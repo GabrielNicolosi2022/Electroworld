@@ -17,7 +17,7 @@ function ItemDetail({ detail }) {
           className="detail"
           alt={detail.name}
           src={detail.image}
-          width="100px"
+          width="200px"
         />
         <h2 className="detail">{detail.name}</h2>
         <h3 className="detail">{detail.description}</h3>

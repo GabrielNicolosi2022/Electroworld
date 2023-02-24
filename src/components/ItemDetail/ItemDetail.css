@@ -1,6 +1,6 @@
 .itemDetail {
-  height: 375px;
-  width: 216px;
+  height: fit-content;
+  width: 316px;
   margin-top: 50px;
   padding: 10px;
   margin-left: auto;
@@ -10,12 +10,9 @@
   flex-wrap: nowrap;
   align-items: center;
   border-radius: 20px 20px 0px 0px;
-  box-shadow: 0 0 10px 0 rgb(0 0 0 / 30%);
-  background-color: #ffffff;
-}
-.itemDetail:hover {
   background-color: lightseagreen;
   box-shadow: 0 0 20px 0 rgb(0 0 0 / 80%);
+  text-align: center;
 }
 .detail {
   position: relative;
@@ -27,9 +24,15 @@
   width: 150px;
   margin-top: 5px;
   border: 1px solid #3c5ef4;
+  border-radius: 5px;
   font-size: 0.75em;
   font-weight: bold;
   text-align: center;
   color: #3c5ef4;
   cursor: pointer;
+}
+.cart-btn:hover,
+.common-btn:hover {
+  background-color: aquamarine;
+  box-shadow: 0 0 20px 0 rgb(0 0 0 / 80%);
 }

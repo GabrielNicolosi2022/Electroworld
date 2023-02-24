@@ -10,11 +10,13 @@
   align-items: center;
   background-color: rgb(234, 229, 229);
   border: 1px solid grey;
+  border-radius: 5px;
 }
 .contador-btn,
 .contador-number {
-  font-size: 0.55em;
+  font-size: 0.75em;
   text-align: center;
+  font-weight: bold;
 }
 .contador-btn {
   height: 23px;
@@ -26,4 +28,5 @@
 .contador-number {
   padding: 0 10px;
   color: #282c34;
+  margin: auto;
 }
