@@ -8,12 +8,8 @@ function ItemDetail({ detail }) {
 
   const { addItem } = useContext(CartContext);
 
-  const [counter, setCount] = useState(0);
+  const [counter, setCount] = useState(1);
 
-  // const addCart = (event) => {
-  //   event.preventDefault();
-  //   console.log({ ...detail, quantity: counter });
-  // };
   return (
     <>
       <div className="itemDetail">
