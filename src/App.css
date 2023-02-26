@@ -1,3 +1,8 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 .App-header,
 .App-main {
   position: relative;
@@ -7,3 +12,7 @@
   height: 120vh;
   background-color: #e3dfdf;
 }
+
+/* .content-wrap {
+  flex: 1;
+} */
