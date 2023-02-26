@@ -25,6 +25,7 @@ const CartProvider = ({ children }) => {
         category: item.category,
         image: item.image,
         stock: item.stock,
+        quality: item.quality,
       };
       setCart([...cart, product]);
       // console.log(cart);
