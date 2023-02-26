@@ -1,4 +1,7 @@
 .pageCart {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -24,9 +27,6 @@ button {
 .delete-btn {
     position: relative;
     width: 30px;
-    /* z-index: 10; */
-      /* background-color: lightseagreen; */
-
 }
 .delete-btn:active{
   background-color: lightseagreen;
