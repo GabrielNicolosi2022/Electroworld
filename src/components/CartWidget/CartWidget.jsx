@@ -14,7 +14,7 @@ export default function CartWidget() {
   return (
     <Link to={'/cart'}>
       <div className="div-cart">
-        <img src="./carrito.svg" className="cart" alt="Carrito" />
+        <img src="/carrito.svg" className="cart" alt="Carrito" />
         <span>{total}</span>
       </div>
     </Link>

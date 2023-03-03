@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <div className="content-wrap">
           <CartProvider>
             <NavBar />
             <Routes>
@@ -24,7 +23,6 @@ function App() {
             </Routes>
           </CartProvider>
           <Footer />
-        </div>
       </BrowserRouter>
     </div>
   );

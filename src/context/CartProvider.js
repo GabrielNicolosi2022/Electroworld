@@ -2,9 +2,10 @@ import { CartContext } from './CartContext';
 import { useState } from 'react';
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-
+  
+  // Función addItem para agregar productos al carrito.
   const addItem = (item, quantity) => {
-
+    
     if (isInCart(item.id)) {
       const newCart = cart.map((product) => {
         if (product.id === item.id) {
@@ -30,7 +31,7 @@ const CartProvider = ({ children }) => {
       setCart([...cart, product]);
       // console.log(cart);
     }
-
+    
   };
   // Funcion clearItem para remover todos los productos del carrito. Actualiza el state a un array vacío.
   const clear = () => {

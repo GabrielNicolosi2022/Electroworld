@@ -1,36 +1,65 @@
 import './Cart.css';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { useNavigate } from 'react-router-dom';
+import {MdDeleteForever} from 'react-icons/md'
+
+
 const Cart = () => {
+  const navigate = useNavigate();
+
   const { cart, clear, removeItem } = useContext(CartContext);
-  // console.log(Cart);
-  return (
-    <div className="pageCart">
-      {cart.map((product) => (
-        <div className="itemCart" key={product.name}>
-          <div className="item">
-            <img src={product.image} alt="imagen del producto" width="100px" />
-            <h3>{product.name}</h3>
-            <h4>{product.description}</h4>
-            <h4>{product.quality}</h4>
-            <h4>{product.price}</h4>
-            <h5>Cant: {product.quantity} </h5>
-            <button onClick={() => removeItem(product.id)}>
-              <img
-                className="delete-btn"
-                src="/icons/delete-icon.svg"
-                alt="delete icon"
-              />
-            </button>
+
+  if (cart.length !== 0) {
+        return (
+          <div className='pageCart'>
+            {cart.map((product) => (
+              <div className='itemCart' key={product.name}>
+                <div className='item'>
+                  <img
+                    src={product.image}
+                    alt='imagen del producto'
+                    width='100px'
+                  />
+                  <h3>{product.name}</h3>
+                  <h4>{product.description}</h4>
+                  <h4>{product.quality}</h4>
+                  <h4>{product.price}</h4>
+                  <h5>Cant: {product.quantity} </h5>
+                  <button
+                    className='delete-btn'
+                    onClick={() => removeItem(product.id)}
+                  >
+                    <MdDeleteForever
+                      className='delete-icon'
+                      size='2em'
+                      // color='#a69bef'
+                    />
+                    {/* <img
+                      
+                      src='/icons/delete-icon.svg'
+                      alt='delete icon'
+                    /> */}
+                  </button>
+                </div>
+              </div>
+            ))}
+            {cart.length > 0 && (
+              <button className='common-btn' onClick={clear}>
+                Vaciar carrito
+              </button>
+            )}
           </div>
-        </div>
-      ))}
-      {cart.length > 0 && (
-        <button className="common-btn" onClick={clear}>
-          Vaciar carrito
+        );
+  } else {
+    return (
+      <div className='pageCartEmpty'>
+        <p>Aún no tienes productos en tu carrito...</p>
+        <button onClick={() => navigate('/')} className='common-btn'>
+          Ver productos
         </button>
-      )}
-    </div>
-  );
+      </div>
+    );
+  }
 };
 export default Cart;

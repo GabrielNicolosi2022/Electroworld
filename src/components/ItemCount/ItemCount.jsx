@@ -1,7 +1,6 @@
 import './ItemCount.css';
 let stock = 7;
 const ItemCount = ({ count, setCount }) => {
-  // const [counter, setItemCount] = useState(0);
   const onAdd = () => {
     if (count < stock) {
       setCount(count + 1);
@@ -12,14 +11,21 @@ const ItemCount = ({ count, setCount }) => {
       setCount(count - 1);
     }
   };
+  // // Función para evitar que se cargen al carrito mayor cantidad que en stock
+  // const excedsStock = (detail) => {
+  //   if (count > detail.stock) {
+  //     isDisabled(ItemCount);
+  //   }
+  // };
+
   return (
     <div>
-      <div className="contador">
-        <button className="contador-btn" onClick={substract}>
+      <div className='contador'>
+        <button className='contador-btn' onClick={substract}>
           -
         </button>
-        <h2 className="contador-number">{count}</h2>
-        <button className="contador-btn" onClick={onAdd}>
+        <h2 className='contador-number'>{count}</h2>
+        <button className='contador-btn' onClick={onAdd}>
           +
         </button>
       </div>

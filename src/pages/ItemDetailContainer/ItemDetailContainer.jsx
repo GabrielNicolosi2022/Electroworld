@@ -1,33 +1,51 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { products } from '../../data/Products';
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
+import Loading from '../../components/Loading/Loading';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
   const [detailObject, setDetailObject] = useState({});
-  const getProduct = new Promise((res, rej) => {
-    setTimeout(() => {
-      const findProduct = products.find((item) => item.id == id);
+  const [loading, setLoading] = useState(true);
 
-      res(findProduct);
-    }, 1000);
-  });
+  const getProduct = () => {
+    const db = getFirestore();
+    const querySnapshot = doc(db, 'products', id);
 
-  useEffect(() => {
-    getProduct
-      .then((response) => {
-        // console.log(response);
-        setDetailObject(response);
+    getDoc(querySnapshot)
+      .then((res) => {
+        setDetailObject({
+          // console.log(res.data());
+          // console.log(res.id);
+          id: res.id,
+          ...res.data(),
+        });
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+  useEffect(() => {
+    getProduct();
   }, []);
   return (
-    <div>
-      <ItemDetail detail={detailObject} />
-    </div>
+    <>
+      {loading ? (
+        <div>
+          <Loading />
+        </div>
+      ) : (
+        <div
+          style={{
+            paddingBottom: '3em',
+          }}
+        >
+          <ItemDetail detail={detailObject} />
+        </div>
+      )}
+    </>
   );
 };
 

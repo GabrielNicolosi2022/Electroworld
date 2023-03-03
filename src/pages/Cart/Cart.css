@@ -1,4 +1,5 @@
-.pageCart {
+.pageCart,
+.pageCartEmpty {
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -8,6 +9,10 @@
   justify-content: space-evenly;
   align-items: center;
 }
+.pageCartEmpty {
+  background-color: lightseagreen;
+}
+
 .itemCart {
   width: 250px;
   display: flex;
@@ -15,19 +20,24 @@
   justify-content: center;
 }
 button {
-   border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
   background-color: #e3dfdf;
-
-    
 }
 .delete-btn {
-    position: relative;
-    width: 30px;
+  position: relative;
+  background-color: transparent;
 }
-.delete-btn:active{
-  background-color: lightseagreen;
+.delete-icon {
+  color: red;
 }
+.delete-icon:active {
+  color: black;
+}
+/* .delete-icon:hover {
+  size: 2.5em;
+} */
+/* hover no funciona */
