@@ -17,14 +17,14 @@ const Cart = () => {
               <div className='itemCart' key={product.name}>
                 <div className='item'>
                   <img
-                    src={product.image}
+                    src={`/img/${product.image}`}
                     alt='imagen del producto'
                     width='100px'
                   />
                   <h3>{product.name}</h3>
                   <h4>{product.description}</h4>
                   <h4>{product.quality}</h4>
-                  <h4>{product.price}</h4>
+                  <h4>{`U$S ${product.price}`}</h4>
                   <h5>Cant: {product.quantity} </h5>
                   <button
                     className='delete-btn'
@@ -35,11 +35,6 @@ const Cart = () => {
                       size='2em'
                       // color='#a69bef'
                     />
-                    {/* <img
-                      
-                      src='/icons/delete-icon.svg'
-                      alt='delete icon'
-                    /> */}
                   </button>
                 </div>
               </div>

@@ -3,7 +3,6 @@ import ItemCount from '../../components/ItemCount/ItemCount';
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
-import { isDisabled } from '@testing-library/user-event/dist/utils';
 function ItemDetail({ detail }) {
   const navigate = useNavigate();
 
@@ -11,7 +10,9 @@ function ItemDetail({ detail }) {
 
   const [counter, setCount] = useState(1);
   // console.log(detail.stock)
+  const [disabled, setDisabled] = useState(false);
 
+  
   return (
     <>
       <div className='itemDetail'>
@@ -31,7 +32,11 @@ function ItemDetail({ detail }) {
         <button onClick={() => navigate('/')} className='common-btn'>
           Seguir comprando
         </button>
-        <button onClick={() => addItem(detail, counter)} className='cart-btn'>
+        <button
+          disabled={counter > detail.stock ? true : false}
+          onClick={() => addItem(detail, counter)}
+          className='cart-btn'
+        >
           Agregar al carrito
         </button>
         <button onClick={() => navigate('/cart')} className='common-btn'>

@@ -1,10 +1,10 @@
 import './ItemCount.css';
-let stock = 7;
+// let stock = 7;
 const ItemCount = ({ count, setCount }) => {
-  const onAdd = () => {
-    if (count < stock) {
-      setCount(count + 1);
-    }
+  const onAdd = () => {setCount(count + 1)
+    // if (count < stock) {
+    //   ;
+    // }
   };
   const substract = () => {
     if (count !== 0) {
