@@ -41,3 +41,8 @@
   background-color: aquamarine;
   box-shadow: 0 0 20px 0 rgb(0 0 0 / 80%);
 }
+
+.cart-btn:active,
+.common-btn:active {
+  background-color: #fafaaf;
+}

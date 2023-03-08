@@ -9,7 +9,7 @@ export default function Categories() {
           className={({ isActive }) => (isActive ? 'active' : 'inactive')}
           to="/"
         >
-          Destacados
+          Todos
         </NavLink>
       </li>
       <li className="categorias__items">

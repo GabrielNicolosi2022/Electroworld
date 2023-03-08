@@ -1,7 +1,8 @@
 import './ItemCount.css';
 // let stock = 7;
 const ItemCount = ({ count, setCount }) => {
-  const onAdd = () => {setCount(count + 1)
+  const onAdd = () => {
+    setCount(count + 1);
     // if (count < stock) {
     //   ;
     // }
@@ -21,11 +22,15 @@ const ItemCount = ({ count, setCount }) => {
   return (
     <div>
       <div className='contador'>
-        <button className='contador-btn' onClick={substract}>
+        <button
+          className='contador-btn'
+          disabled={count === 0}
+          onClick={substract}
+        >
           -
         </button>
         <h2 className='contador-number'>{count}</h2>
-        <button className='contador-btn' onClick={onAdd}>
+        <button className='contador-btn' disabled={count === 0} onClick={onAdd}>
           +
         </button>
       </div>

@@ -8,11 +8,10 @@ function ItemDetail({ detail }) {
 
   const { addItem } = useContext(CartContext);
 
-  const [counter, setCount] = useState(1);
+  const [counter, setCounter] = useState(detail?.stock === 0 ? 0 : 1);
   // console.log(detail.stock)
   const [disabled, setDisabled] = useState(false);
 
-  
   return (
     <>
       <div className='itemDetail'>
@@ -28,7 +27,7 @@ function ItemDetail({ detail }) {
         <h3 className='detail'>{detail.category}</h3>
         <h3 className='detail'>{`U$S ${detail.price}`}</h3>
         <h6 className='detail'>Disponibles: {detail.stock}</h6>
-        <ItemCount count={counter} setCount={setCount} />
+        <ItemCount count={counter} setCount={setCounter} />
         <button onClick={() => navigate('/')} className='common-btn'>
           Seguir comprando
         </button>
@@ -40,7 +39,7 @@ function ItemDetail({ detail }) {
           Agregar al carrito
         </button>
         <button onClick={() => navigate('/cart')} className='common-btn'>
-          Completar mi compra
+          Ir al carrito
         </button>
       </div>
     </>
