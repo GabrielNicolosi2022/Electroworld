@@ -1,13 +1,13 @@
 .pageCart,
 .pageCartEmpty {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
 }
 .pageCartEmpty {
   background-color: lightseagreen;
@@ -21,29 +21,29 @@
   justify-content: center;
 }
 .itemCart {
-width: 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    cursor: pointer;
-    background-color: #ffffff;
-    color: black;
-    justify-content: space-between;
-    align-items: center;
-    align-content: flex-start;
-    flex-wrap: wrap;
-  }
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: black;
+  justify-content: space-between;
+  align-items: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
 .itemCart:hover {
   background-color: lightseagreen;
   box-shadow: 0 0 20px 0 rgb(0 0 0 / 80%);
 }
-.buttons{
-width: 100%;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.buttons {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 button {
   border: none;
@@ -62,4 +62,9 @@ button {
 }
 .delete-icon:active {
   color: black;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
 }

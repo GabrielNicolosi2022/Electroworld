@@ -1,5 +1,7 @@
 .ItemListContainer {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
+    position: relative;
+    width: 93%;
+    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
 }

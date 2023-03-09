@@ -21,6 +21,8 @@ const ItemListContainer = () => {
     const db = getFirestore();
     const querySnapshot = collection(db, 'products');
     
+    // const querySnapshot = categoryId ? collection(db, 'products')
+
     if (categoryId) {
       const filteredQuery = query(
         querySnapshot,
