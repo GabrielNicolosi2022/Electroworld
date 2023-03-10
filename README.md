@@ -1,3 +1,13 @@
+#ElectroWorld - tienda online
+
+#Librerias utilizadas
+react-bootstrap V 2.7.2
+react-icons V 4.7.1
+   
+#descripcion del proyecto
+
+colocar un gif del proyecto
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
