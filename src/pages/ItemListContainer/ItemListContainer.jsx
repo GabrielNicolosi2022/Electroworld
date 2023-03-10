@@ -19,53 +19,32 @@ const ItemListContainer = () => {
 
   const getProducts = () => {
     const db = getFirestore();
-    const querySnapshot = collection(db, 'products');
-    
-    // const querySnapshot = categoryId ? collection(db, 'products')
+    const queryBase = collection(db, 'products');
 
-    if (categoryId) {
-      const filteredQuery = query(
-        querySnapshot,
-        where('category', '==', categoryId)
-      );
-      getDocs(filteredQuery)
-        .then((response) => {
-          // console.log(response.docs);
-          const list = response.docs.map((doc) => {
-            // console.log(doc);
-            return {
-              id: doc.id,
-              ...doc.data(),
-            };
-          });
-          console.log(list);
-          setProductList(list);
-          setLoading(false);
-        })
-        .catch((error) => console.log(error));
-    } else {
-      getDocs(querySnapshot)
-        .then((response) => {
-          // console.log(response.docs);
-          const list = response.docs.map((doc) => {
-            // console.log(doc);
-            return {
-              id: doc.id,
-              ...doc.data(),
-            };
-          });
-          console.log(list);
-          setProductList(list);
-          setLoading(false);
-        })
-        .catch((error) => console.log(error));
-    }
+    const querySnapshot = categoryId
+      ? query(queryBase, where('category', '==', categoryId))
+      : queryBase;
+
+    getDocs(querySnapshot)
+      .then((response) => {
+        const list = response.docs.map((doc) => {
+          return {
+            id: doc.id,
+            ...doc.data(),
+          };
+        });
+        console.log(list);
+        setProductList(list);
+        setLoading(false);
+      })
+      .catch((error) => console.log(error));
   };
   useEffect(() => {
     getProducts();
+    // eslint-disable-next-line
   }, [categoryId]);
 
-  // Loading mientras cargar base de datos
+  // Loading mientras carga base de datos
   return (
     <>
       {loading ? (
