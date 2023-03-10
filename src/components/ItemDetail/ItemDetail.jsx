@@ -10,7 +10,6 @@ function ItemDetail({ detail }) {
 
   const [counter, setCounter] = useState(detail?.stock === 0 ? 0 : 1);
   // console.log(detail.stock)
-  const [disabled, setDisabled] = useState(false);
 
   return (
     <>

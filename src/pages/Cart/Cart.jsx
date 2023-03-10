@@ -12,7 +12,7 @@ import {
 } from 'firebase/firestore';
 
 const Cart = () => {
-  const { cart, clear, removeItem } = useContext(CartContext);
+  const { cart, clear, removeItem, total } = useContext(CartContext);
   const [formValue, setFormValue] = useState({
     name: '',
     phone: '',
@@ -40,7 +40,7 @@ const Cart = () => {
             quantity: product.quantity,
           };
         }),
-        total: cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0),
+        total: total,
       })
         .then((response) => {
           console.log(response.id);
@@ -74,67 +74,84 @@ const Cart = () => {
       });
     };
     return (
-      <div className='pageCart'>
-        <div>
-          {cart.map((product) => (
-            <div className='Cart' key={product.name}>
-              <div className='itemCart'>
-                <img
-                  src={`/img/${product.image}`}
-                  alt='imagen del producto'
-                  width='100px'
-                />
-                <h4>
-                  {product.name} {product.description} {product.quality}
-                </h4>
-                <h4>{`U$S ${product.price}`}</h4>
-                <h5>Cant: {product.quantity} </h5>
-                <button
-                  className='delete-btn'
-                  onClick={() => removeItem(product.id)}
-                >
-                  <MdDeleteForever className='delete-icon' size='2em' />
-                </button>
+      <div className='cartContainer'>
+        <div className='divCart'>
+          <div>
+            <h1 className='cartTitle'>Mi Carrito</h1>
+            {cart.map((product) => (
+              <div className='cartProduct' key={product.name}>
+                <div className='itemCart'>
+                  <img
+                    src={`/img/${product.image}`}
+                    alt='imagen del producto'
+                    width='100px'
+                  />
+                  <h4 className='cartProductName'>
+                    {product.name} {product.description}
+                  </h4>
+                  <h4 className='cartProductPrice'>{`U$S ${product.price}`}</h4>
+                  <h5 className='cartProductQuant'>
+                    Cant: {product.quantity}{' '}
+                  </h5>
+                  <button
+                    className='delete-btn'
+                    onClick={() => removeItem(product.id)}
+                  >
+                    <MdDeleteForever className='delete-icon' size='2em' />
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
-          <div className='buttons'>
-            {cart.length > 0 && (
-              <button className='common-btn' onClick={clear}>
-                Vaciar carrito
-              </button>
-            )}
-            <button onClick={() => navigate('/')} className='common-btn'>
-              Seguir comprando
-            </button>
+            ))}
           </div>
         </div>
-        <div className='form'>
-          <form>
+        <div className='cartFormContainer'>
+          <h2>Mi compra</h2>
+          <form className='cartForm'>
             <input
+              className='cartInput'
               name='name'
               type='text'
               placeholder='Nombre'
               value={formValue.name}
               onChange={handleInput}
+              required
             />
             <input
+              className='cartInput'
               name='phone'
               type='text'
               placeholder='Telefono'
               value={formValue.phone}
               onChange={handleInput}
+              required
             />
             <input
+              className='cartInput'
               name='email'
               type='email'
               placeholder='email'
               value={formValue.email}
               onChange={handleInput}
+              required
             />
-            <button className='common-btn' onClick={createOrder}>
-              Completar compra
-            </button>
+            <div className='cartTotalPrice'>
+              <div>Total:</div>
+              <div>$ {total}</div>
+            </div>
+            <div className='buttons'>
+              {cart.length > 0 && (
+                <button className='btn-compra' onClick={clear}>
+                  Vaciar carrito
+                </button>
+              )}
+              <button onClick={() => navigate('/')} className='btn-compra'>
+                Seguir comprando
+              </button>
+
+              <button className='btn-compra' onClick={createOrder}>
+                Completar compra
+              </button>
+            </div>
           </form>
         </div>
       </div>

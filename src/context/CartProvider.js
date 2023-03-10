@@ -1,11 +1,14 @@
 import { CartContext } from './CartContext';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    setTotal(cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0));
+  }, [cart]);
   // Función addItem para agregar productos al carrito.
   const addItem = (item, quantity) => {
-    
     if (isInCart(item.id)) {
       const newCart = cart.map((product) => {
         if (product.id === item.id) {
@@ -14,8 +17,8 @@ const CartProvider = ({ children }) => {
         } else {
           return product;
         }
-      })
-      setCart(newCart)
+      });
+      setCart(newCart);
     } else {
       const product = {
         id: item.id,
@@ -31,14 +34,13 @@ const CartProvider = ({ children }) => {
       setCart([...cart, product]);
       // console.log(cart);
     }
-    
   };
   // Funcion clearItem para remover todos los productos del carrito. Actualiza el state a un array vacío.
   const clear = () => {
     setCart([]);
   };
 
-  // Funcion removeItem para remover solo un producto del carrito. 
+  // Funcion removeItem para remover solo un producto del carrito.
   const removeItem = (productId) => {
     setCart(cart.filter((product) => product.id !== productId));
   };
@@ -53,7 +55,7 @@ const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addItem, clear, removeItem }}>
+    <CartContext.Provider value={{ cart, addItem, clear, removeItem, total }}>
       {children}
     </CartContext.Provider>
   );

@@ -1,4 +1,4 @@
-.pageCart,
+.cartContainer,
 .pageCartEmpty {
   position: relative;
   width: 100%;
@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: flex-start;
 }
 .pageCartEmpty {
@@ -14,11 +13,11 @@
   padding: 15px;
 }
 
-.Cart {
+.cartProduct {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
 }
 .itemCart {
   width: 100%;
@@ -37,13 +36,47 @@
   background-color: lightseagreen;
   box-shadow: 0 0 20px 0 rgb(0 0 0 / 80%);
 }
+.cartProductName{
+  flex-grow: 2;
+  padding: 0 15px;
+}
+.cartProductPrice{
+  flex-grow: 0;
+  padding: 0 15px;
+
+}
+.cartProductQuant{
+  flex-grow: 0;
+  padding: 0 15px;
+
+}
 .buttons {
   width: 100%;
   margin-top: 20px;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.btn-compra{
+  height: 25px;
+  width: 150px;
+  margin: 5px;
+  border: 1px solid #3c5ef4;
+  border-radius: 5px;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-align: center;
+  color: #3c5ef4;
+  cursor: pointer;
+}
+.btn-compra:hover {
+  background-color: aquamarine;
+  box-shadow: 0 0 20px 0 rgb(0 0 0 / 80%);
+}
+
+.btn-compra:active {
+  background-color: #fafaaf;
 }
 button {
   border: none;
@@ -64,7 +97,30 @@ button {
   color: black;
 }
 
-.form{
+.cartForm {
+  min-height: 100%;
+  width: 28vw;
+  margin: 5px;
+  padding: 5px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* border: 1px solid; */
+
+}
+.divCart {
+  width: 70vw;
+}
+.cartInput{
+  margin-bottom: 5px;
+  border-radius: 5px;
+
+}
+.cartTotalPrice{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 5px;
 }
