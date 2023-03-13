@@ -125,7 +125,7 @@ const Cart = () => {
             />
             <div className='cartTotalPrice'>
               <div>Total:</div>
-              <div>$ {total}</div>
+              <div className='cartTotalPrice__total'>$ {total}</div>
             </div>
             <div className='buttons'>
               {cart.length > 0 && (

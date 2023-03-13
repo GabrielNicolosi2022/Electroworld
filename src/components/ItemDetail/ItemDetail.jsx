@@ -27,7 +27,7 @@ function ItemDetail({ detail }) {
         <h3 className='detail'>{detail.description}</h3>
         <h3 className='detail'>{detail.quality}</h3>
         <h3 className='detail'>{detail.category}</h3>
-        <h3 className='detail'>{`U$S ${detail.price}`}</h3>
+        <h3 className='detail'>{`$ ${detail.price}`}</h3>
         <h6 className='detail'>Disponibles: {detail.stock}</h6>
         <ItemCount count={counter} setCount={setCounter} stock={detail.stock} />
         <button onClick={() => navigate('/')} className='common-btn'>

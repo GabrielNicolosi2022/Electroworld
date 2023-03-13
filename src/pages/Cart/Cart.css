@@ -26,6 +26,7 @@
 .itemCart {
   width: 100%;
   padding: 10px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
   cursor: pointer;
@@ -123,10 +124,14 @@ button {
   flex-wrap: nowrap;
   justify-content: space-between;
   margin: 5px;
+    font-weight: bold;
+    font-size: 1.5em;
 }
+.cartTotalPrice__total {
 
+}
 .oops {
   font-family: 'Bubblegum Sans', cursive;
-  font-size: 2em;
+  font-size: 3em;
   color: red;
 }
