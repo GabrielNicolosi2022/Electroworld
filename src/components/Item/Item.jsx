@@ -1,4 +1,4 @@
-import './style.css';
+import './Item.css';
 const Item = ({ product }) => {
   // console.log(product);
   return (

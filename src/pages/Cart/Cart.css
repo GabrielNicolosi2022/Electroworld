@@ -9,8 +9,12 @@
   align-items: flex-start;
 }
 .pageCartEmpty {
-  background-color: lightseagreen;
+  min-height: 77vh;
+  background-color: #fff;
   padding: 15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .cartProduct {
@@ -36,19 +40,17 @@
   background-color: lightseagreen;
   box-shadow: 0 0 20px 0 rgb(0 0 0 / 80%);
 }
-.cartProductName{
+.cartProductName {
   flex-grow: 2;
   padding: 0 15px;
 }
-.cartProductPrice{
+.cartProductPrice {
   flex-grow: 0;
   padding: 0 15px;
-
 }
-.cartProductQuant{
+.cartProductQuant {
   flex-grow: 0;
   padding: 0 15px;
-
 }
 .buttons {
   width: 100%;
@@ -58,7 +60,7 @@
   flex-wrap: nowrap;
   justify-content: space-between;
 }
-.btn-compra{
+.btn-compra {
   height: 25px;
   width: 150px;
   margin: 5px;
@@ -107,20 +109,24 @@ button {
   flex-wrap: wrap;
   justify-content: center;
   /* border: 1px solid; */
-
 }
 .divCart {
   width: 70vw;
 }
-.cartInput{
+.cartInput {
   margin-bottom: 5px;
   border-radius: 5px;
-
 }
-.cartTotalPrice{
+.cartTotalPrice {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   margin: 5px;
+}
+
+.oops {
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 2em;
+  color: red;
 }

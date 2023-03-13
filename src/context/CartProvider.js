@@ -35,17 +35,17 @@ const CartProvider = ({ children }) => {
       // console.log(cart);
     }
   };
-  // Funcion clearItem para remover todos los productos del carrito. Actualiza el state a un array vacío.
+  // Función clearItem para remover todos los productos del carrito. Actualiza el state a un array vacío.
   const clear = () => {
     setCart([]);
   };
 
-  // Funcion removeItem para remover solo un producto del carrito.
+  // Función removeItem para remover solo un producto del carrito.
   const removeItem = (productId) => {
     setCart(cart.filter((product) => product.id !== productId));
   };
 
-  // Funcion para evitar que se dupliquen los productos en el carrito.
+  // Función para evitar que se dupliquen los productos en el carrito.
   const isInCart = (productId) => {
     if (cart.find((product) => product.id === productId)) {
       return true;
@@ -54,8 +54,24 @@ const CartProvider = ({ children }) => {
     }
   };
 
+  const updateItem = (productId, newQuantity) => {
+    const newCart = cart.map((product) => {
+      if (productId === product.id) {
+        return {
+          ...product,
+          quantity: newQuantity,
+        };
+      } else {
+        return product;
+      }
+    });
+    setCart(newCart);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addItem, clear, removeItem, total }}>
+    <CartContext.Provider
+      value={{ cart, addItem, clear, removeItem, total, setCart, updateItem }}
+    >
       {children}
     </CartContext.Provider>
   );

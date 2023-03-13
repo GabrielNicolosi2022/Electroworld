@@ -1,6 +1,6 @@
 import './ItemDetail.css';
 import ItemCount from '../../components/ItemCount/ItemCount';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 function ItemDetail({ detail }) {
@@ -8,9 +8,12 @@ function ItemDetail({ detail }) {
 
   const { addItem } = useContext(CartContext);
 
-  const [counter, setCounter] = useState(detail?.stock === 0 ? 0 : 1);
+  const [counter, setCounter] = useState(0);
   // console.log(detail.stock)
-
+  useEffect(() => {
+    setCounter(detail?.stock === 0 ? 0 : 1);
+  }, [detail])
+  
   return (
     <>
       <div className='itemDetail'>
@@ -26,7 +29,7 @@ function ItemDetail({ detail }) {
         <h3 className='detail'>{detail.category}</h3>
         <h3 className='detail'>{`U$S ${detail.price}`}</h3>
         <h6 className='detail'>Disponibles: {detail.stock}</h6>
-        <ItemCount count={counter} setCount={setCounter} />
+        <ItemCount count={counter} setCount={setCounter} stock={detail.stock} />
         <button onClick={() => navigate('/')} className='common-btn'>
           Seguir comprando
         </button>

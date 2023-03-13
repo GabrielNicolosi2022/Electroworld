@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import logo from '../../logo-electro-world-bt.png';
 import Categories from '../Categories/Categories';
 import CartWidget from '../CartWidget/CartWidget';
-import Account from '../Account/Account';
 
 export default function NavBar() {
 
@@ -13,7 +12,6 @@ export default function NavBar() {
         <img src={logo} className="logo" alt="logo" />
       </Link>
       <Categories />
-      <Account/>
       <CartWidget />
     </div>
   );

@@ -1,6 +1,6 @@
 // creo lista de categorias para el NavBar
 import './Categories.css';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 export default function Categories() {
   return (
     <ul className="categorias">

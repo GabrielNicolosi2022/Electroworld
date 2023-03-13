@@ -10,6 +10,7 @@ import {
   doc,
   updateDoc,
 } from 'firebase/firestore';
+import ItemCart from './ItemCart';
 
 const Cart = () => {
   const { cart, clear, removeItem, total } = useContext(CartContext);
@@ -78,28 +79,16 @@ const Cart = () => {
         <div className='divCart'>
           <div>
             <h1 className='cartTitle'>Mi Carrito</h1>
+
             {cart.map((product) => (
               <div className='cartProduct' key={product.name}>
-                <div className='itemCart'>
-                  <img
-                    src={`/img/${product.image}`}
-                    alt='imagen del producto'
-                    width='100px'
-                  />
-                  <h4 className='cartProductName'>
-                    {product.name} {product.description}
-                  </h4>
-                  <h4 className='cartProductPrice'>{`U$S ${product.price}`}</h4>
-                  <h5 className='cartProductQuant'>
-                    Cant: {product.quantity}{' '}
-                  </h5>
-                  <button
-                    className='delete-btn'
-                    onClick={() => removeItem(product.id)}
-                  >
-                    <MdDeleteForever className='delete-icon' size='2em' />
-                  </button>
-                </div>
+                <ItemCart product={product} />
+                <button
+                  className='delete-btn'
+                  onClick={() => removeItem(product.id)}
+                >
+                  <MdDeleteForever className='delete-icon' size='2em' />
+                </button>
               </div>
             ))}
           </div>
@@ -147,7 +136,6 @@ const Cart = () => {
               <button onClick={() => navigate('/')} className='btn-compra'>
                 Seguir comprando
               </button>
-
               <button className='btn-compra' onClick={createOrder}>
                 Completar compra
               </button>
@@ -159,9 +147,12 @@ const Cart = () => {
   } else {
     return (
       <div className='pageCartEmpty'>
-        <p>Aún no tienes productos en tu carrito...</p>
+        <p className='oops'>oops!!</p> <img src='/emptycart.jpg' alt='carrito vacio' style={{width:'250px'}}/>
+        <p className='h3 py-3 text-uppercase text-muted fst-italic'>
+          Tu carrito está vacío...
+        </p>
         <button onClick={() => navigate('/')} className='common-btn'>
-          Elegir productos
+          Volver a la tienda
         </button>
       </div>
     );

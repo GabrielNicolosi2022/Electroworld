@@ -1,4 +1,4 @@
-import './style.css';
+import './ItemList.css';
 import Item from '../Item/Item';
 import { Link } from 'react-router-dom';
 const ItemList = ({ productsList }) => {

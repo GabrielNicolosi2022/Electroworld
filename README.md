@@ -1,12 +1,13 @@
-#ElectroWorld - tienda online
+# ElectroWorld - Tienda online
 
-#Librerias utilizadas
+# Descripción del proyecto
+ElectroWorld es una WebApp de una tienda de electrodomésticos y artículos del hogar.
+
+# Librerias utilizadas
 react-bootstrap V 2.7.2
 react-icons V 4.7.1
-   
-#descripcion del proyecto
 
-colocar un gif del proyecto
+COLOCAR UN GIF DEL PROYECTO
 
 # Getting Started with Create React App
 
