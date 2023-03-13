@@ -10,7 +10,7 @@ const ItemCart = ({ product }) => {
 
   useEffect(() => {
     updateItem(product.id, quantity);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quantity]);
   return (
     <>
@@ -23,7 +23,9 @@ const ItemCart = ({ product }) => {
         <h4 className='cartProductName'>
           {product.name} {product.description}
         </h4>
-        <h4 className='cartProductPrice'>{`U$S ${product.price}`}</h4>
+        <h4 className='cartProductPrice'>{`$ ${new Intl.NumberFormat().format(
+          product.price
+        )}`}</h4>
         <ItemCount
           count={quantity}
           setCount={setQuantity}

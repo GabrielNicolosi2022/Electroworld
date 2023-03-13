@@ -50,13 +50,11 @@ const Cart = () => {
         })
         .catch((error) => console.log(error));
     };
-
     const updateStocks = (db) => {
       cart.forEach((product) => {
         const querySnapshot = doc(db, 'products', product.id);
         updateDoc(querySnapshot, { stock: product.stock - product.quantity })
           .then(() => {
-            // alert('El stock de los productos ha sido actualizado.');
             updateStocks();
           })
           .then(() => {
@@ -65,7 +63,6 @@ const Cart = () => {
           .catch((error) => console.log(error));
       });
     };
-
     const handleInput = (event) => {
       // console.log(event.target.value);
       // console.log(event.target.name);
@@ -125,7 +122,9 @@ const Cart = () => {
             />
             <div className='cartTotalPrice'>
               <div>Total:</div>
-              <div className='cartTotalPrice__total'>$ {total}</div>
+              <div className='cartTotalPrice__total'>
+                $ {new Intl.NumberFormat().format(total)}
+              </div>
             </div>
             <div className='buttons'>
               {cart.length > 0 && (
@@ -147,7 +146,12 @@ const Cart = () => {
   } else {
     return (
       <div className='pageCartEmpty'>
-        <p className='oops'>oops!!</p> <img src='/emptycart.jpg' alt='carrito vacio' style={{width:'250px'}}/>
+        <p className='oops'>oops!!</p>{' '}
+        <img
+          src='/emptycart.jpg'
+          alt='carrito vacio'
+          style={{ width: '250px' }}
+        />
         <p className='h3 py-3 text-uppercase text-muted fst-italic'>
           Tu carrito está vacío...
         </p>

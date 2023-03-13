@@ -12,8 +12,8 @@ function ItemDetail({ detail }) {
   // console.log(detail.stock)
   useEffect(() => {
     setCounter(detail?.stock === 0 ? 0 : 1);
-  }, [detail])
-  
+  }, [detail]);
+
   return (
     <>
       <div className='itemDetail'>
@@ -27,7 +27,9 @@ function ItemDetail({ detail }) {
         <h3 className='detail'>{detail.description}</h3>
         <h3 className='detail'>{detail.quality}</h3>
         <h3 className='detail'>{detail.category}</h3>
-        <h3 className='detail'>{`$ ${detail.price}`}</h3>
+        <h3 className='detail'>{`$ ${new Intl.NumberFormat().format(
+          detail.price
+        )}`}</h3>
         <h6 className='detail'>Disponibles: {detail.stock}</h6>
         <ItemCount count={counter} setCount={setCounter} stock={detail.stock} />
         <button onClick={() => navigate('/')} className='common-btn'>
