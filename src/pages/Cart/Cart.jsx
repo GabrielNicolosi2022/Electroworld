@@ -18,6 +18,7 @@ const Cart = () => {
     name: '',
     phone: '',
     email: '',
+    email2:'',
   });
   const navigate = useNavigate();
 
@@ -27,6 +28,11 @@ const Cart = () => {
       const db = getFirestore();
       const querySnapshot = collection(db, 'orders');
 
+      if (formValue.email !== formValue.email2) {
+        
+        alert('Los correos electrónicos no coinciden');
+        return;
+      }
       addDoc(querySnapshot, {
         buyer: {
           email: formValue.email,
@@ -64,13 +70,12 @@ const Cart = () => {
       });
     };
     const handleInput = (event) => {
-      // console.log(event.target.value);
-      // console.log(event.target.name);
       setFormValue({
         ...formValue,
         [event.target.name]: event.target.value,
       });
     };
+    
     return (
       <div className='cartContainer'>
         <div className='divCart'>
@@ -115,8 +120,17 @@ const Cart = () => {
               className='cartInput'
               name='email'
               type='email'
-              placeholder='email'
+              placeholder='Ingrese su email'
               value={formValue.email}
+              onChange={handleInput}
+              required
+            />
+            <input
+              className='cartInput'
+              name='email2'
+              type='email'
+              placeholder='Reingrese su email'
+              value={formValue.email2}
               onChange={handleInput}
               required
             />
