@@ -18,7 +18,7 @@ const Cart = () => {
     name: '',
     phone: '',
     email: '',
-    email2:'',
+    email2: '',
   });
   const navigate = useNavigate();
 
@@ -29,7 +29,6 @@ const Cart = () => {
       const querySnapshot = collection(db, 'orders');
 
       if (formValue.email !== formValue.email2) {
-        
         alert('Los correos electrónicos no coinciden');
         return;
       }
@@ -75,7 +74,7 @@ const Cart = () => {
         [event.target.name]: event.target.value,
       });
     };
-    
+
     return (
       <div className='cartContainer'>
         <div className='divCart'>
