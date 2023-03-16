@@ -81,6 +81,12 @@
 .btn-compra:active {
   background-color: #fafaaf;
 }
+.btn-compra:disabled {
+  color: lightslategray;
+  box-shadow: none;
+  background-color: #e3dfdf;  
+}
+
 button {
   border: none;
   margin: 0;
@@ -109,7 +115,6 @@ button {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  /* border: 1px solid; */
 }
 .divCart {
   width: 70vw;
@@ -124,11 +129,8 @@ button {
   flex-wrap: nowrap;
   justify-content: space-between;
   margin: 5px;
-    font-weight: bold;
-    font-size: 1.5em;
-}
-.cartTotalPrice__total {
-
+  font-weight: bold;
+  font-size: 1.5em;
 }
 .oops {
   font-family: 'Bubblegum Sans', cursive;

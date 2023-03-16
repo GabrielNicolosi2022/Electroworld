@@ -21,17 +21,24 @@ const Cart = () => {
     email2: '',
   });
   const navigate = useNavigate();
-
+  const [formComplete, setFormComplete] = useState(false);
+  const currentDate = new Date();
+  
+  // Visualizar Items en carrito o carrito vacío
   if (cart.length !== 0) {
     const createOrder = (event) => {
       event.preventDefault();
       const db = getFirestore();
       const querySnapshot = collection(db, 'orders');
 
+      // Validación email
       if (formValue.email !== formValue.email2) {
+        // event.preventDefault(); // en esta posición no da el numedo de orden
         alert('Los correos electrónicos no coinciden');
         return;
       }
+
+      // Función para guardar Order en la base de datos
       addDoc(querySnapshot, {
         buyer: {
           email: formValue.email,
@@ -47,6 +54,7 @@ const Cart = () => {
           };
         }),
         total: total,
+        date: currentDate.toLocaleString(), // Agregar fecha y hora de la orden
       })
         .then((response) => {
           console.log(response.id);
@@ -54,7 +62,10 @@ const Cart = () => {
           updateStocks(db);
         })
         .catch((error) => console.log(error));
+      
+      
     };
+    // Función para actualizar stock de los productos
     const updateStocks = (db) => {
       cart.forEach((product) => {
         const querySnapshot = doc(db, 'products', product.id);
@@ -68,11 +79,20 @@ const Cart = () => {
           .catch((error) => console.log(error));
       });
     };
+    
     const handleInput = (event) => {
       setFormValue({
         ...formValue,
         [event.target.name]: event.target.value,
       });
+      // Validar si todos los campos del formulario están completos
+      const isFormComplete =
+        formValue.name !== '' &&
+        formValue.phone !== '' &&
+        formValue.email !== '' &&
+        formValue.email2 !== '';
+
+      setFormComplete(isFormComplete);
     };
 
     return (
@@ -80,7 +100,6 @@ const Cart = () => {
         <div className='divCart'>
           <div>
             <h1 className='cartTitle'>Mi Carrito</h1>
-
             {cart.map((product) => (
               <div className='cartProduct' key={product.name}>
                 <ItemCart product={product} />
@@ -148,7 +167,16 @@ const Cart = () => {
               <button onClick={() => navigate('/')} className='btn-compra'>
                 Seguir comprando
               </button>
-              <button className='btn-compra' onClick={createOrder}>
+              <button
+                className={!formComplete ? 'btn-compra' : 'btn-compra disabled'}
+                onClick={createOrder}
+                disabled={
+                  !formValue.name ||
+                  !formValue.phone ||
+                  !formValue.email ||
+                  !formValue.email2
+                }
+              >
                 Completar compra
               </button>
             </div>
