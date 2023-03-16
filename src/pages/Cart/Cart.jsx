@@ -11,6 +11,7 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 import ItemCart from './ItemCart';
+import Swal from 'sweetalert2';
 
 const Cart = () => {
   const { cart, clear, removeItem, total } = useContext(CartContext);
@@ -23,18 +24,20 @@ const Cart = () => {
   const navigate = useNavigate();
   const [formComplete, setFormComplete] = useState(false);
   const currentDate = new Date();
-  
+
   // Visualizar Items en carrito o carrito vacío
   if (cart.length !== 0) {
     const createOrder = (event) => {
       event.preventDefault();
       const db = getFirestore();
       const querySnapshot = collection(db, 'orders');
-
+      const validateEmail = () => {
+        Swal.fire('Atención', 'Los correos electrónicos no coinciden', 'warning');
+      };
       // Validación email
       if (formValue.email !== formValue.email2) {
         // event.preventDefault(); // en esta posición no da el numedo de orden
-        alert('Los correos electrónicos no coinciden');
+        validateEmail();
         return;
       }
 
@@ -54,16 +57,20 @@ const Cart = () => {
           };
         }),
         total: total,
-        date: currentDate.toLocaleString(), // Agregar fecha y hora de la orden
+        // Agregar fecha y hora de la orden
+        date: currentDate.toLocaleString(),
       })
         .then((response) => {
           console.log(response.id);
-          alert(`Orden con el id: ${response.id} ha sido creada`);
+          // sweetAlert
+          const mostrarIdOrden = () => {
+            Swal.fire('Felicidades',`Compra realizada con éxito,\nOrden de compra N°: ${response.id} ha sido creada`, 'success');
+          };
+          // alert(`Orden con el id: ${response.id} ha sido creada`);
+          mostrarIdOrden();
           updateStocks(db);
         })
         .catch((error) => console.log(error));
-      
-      
     };
     // Función para actualizar stock de los productos
     const updateStocks = (db) => {
@@ -79,7 +86,7 @@ const Cart = () => {
           .catch((error) => console.log(error));
       });
     };
-    
+
     const handleInput = (event) => {
       setFormValue({
         ...formValue,

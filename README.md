@@ -6,6 +6,7 @@ ElectroWorld es una WebApp de una tienda de electrodomésticos y artículos del 
 # Librerias utilizadas
 react-bootstrap V 2.7.2
 react-icons V 4.7.1
+ sweetalert2 V 11.7.3
 
 COLOCAR UN GIF DEL PROYECTO
 
