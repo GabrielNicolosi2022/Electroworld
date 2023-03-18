@@ -1,4 +1,5 @@
 # ElectroWorld - Tienda online
+![Gif Electroworld](Electro-World.gif)
 
 # Descripción del proyecto
 
@@ -14,9 +15,7 @@ react-icons V 4.7.1 | https://react-icons.github.io/react-icons/ | Icono utiliza
 
 sweetalert2 V 11.7.3 | https://sweetalert2.github.io/ | Utilizado en los Mensajes de Alerta para mostrarlos mas amigables para el usuario. 
 
---> COLOCAR UN GIF DEL PROYECTO <--
 
-![Gif Electroworld](../Electro-World.gif)
 
 # Getting Started with Create React App
 
