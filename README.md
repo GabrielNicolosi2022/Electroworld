@@ -16,6 +16,8 @@ sweetalert2 V 11.7.3 | https://sweetalert2.github.io/ | Utilizado en los Mensaje
 
 --> COLOCAR UN GIF DEL PROYECTO <--
 
+![Gif Electroworld](../Electro-World.gif)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
