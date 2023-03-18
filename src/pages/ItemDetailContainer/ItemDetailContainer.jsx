@@ -1,3 +1,4 @@
+import './ItemDetailContainer.css'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
@@ -16,8 +17,6 @@ const ItemDetailContainer = () => {
     getDoc(querySnapshot)
       .then((res) => {
         setDetailObject({
-          // console.log(res.data());
-          // console.log(res.id);
           id: res.id,
           ...res.data(),
         });
@@ -39,6 +38,7 @@ const ItemDetailContainer = () => {
         </div>
       ) : (
         <div
+          className='ItemDetailContainer'
           style={{
             paddingBottom: '3em',
           }}

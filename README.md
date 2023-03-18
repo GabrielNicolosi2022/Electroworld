@@ -1,14 +1,20 @@
 # ElectroWorld - Tienda online
 
 # Descripción del proyecto
-ElectroWorld es una WebApp de una tienda de electrodomésticos y artículos del hogar.
+
+ElectroWorld es una WebApp realizada completamente en ReactJS para una tienda de electrodomésticos y artículos del hogar, cuenta con una base de datos en Firebase (https://firebase.google.com/), diseño amigable e intuitivo.
+
+https://electroworld.vercel.app
 
 # Librerias utilizadas
-react-bootstrap V 2.7.2
-react-icons V 4.7.1
- sweetalert2 V 11.7.3
 
-COLOCAR UN GIF DEL PROYECTO
+react-bootstrap V 2.7.2 | https://react-bootstrap.github.io/ | Utlilizado en el Spinner del Loading, en el Footer y algún otro caso puntual.
+
+react-icons V 4.7.1 | https://react-icons.github.io/react-icons/ | Icono utilizado para eliminar items del carrito.
+
+sweetalert2 V 11.7.3 | https://sweetalert2.github.io/ | Utilizado en los Mensajes de Alerta para mostrarlos mas amigables para el usuario. 
+
+--> COLOCAR UN GIF DEL PROYECTO <--
 
 # Getting Started with Create React App
 

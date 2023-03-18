@@ -32,7 +32,11 @@ const Cart = () => {
       const db = getFirestore();
       const querySnapshot = collection(db, 'orders');
       const validateEmail = () => {
-        Swal.fire('Atención', 'Los correos electrónicos no coinciden', 'warning');
+        Swal.fire(
+          'Atención',
+          'Los correos electrónicos no coinciden',
+          'warning'
+        );
       };
       // Validación email
       if (formValue.email !== formValue.email2) {
@@ -64,9 +68,12 @@ const Cart = () => {
           console.log(response.id);
           // sweetAlert
           const mostrarIdOrden = () => {
-            Swal.fire('Felicidades',`Compra realizada con éxito,\nOrden de compra N°: ${response.id} ha sido creada`, 'success');
+            Swal.fire(
+              'Felicidades',
+              `Compra realizada con éxito,\n Orden de compra N°: ${response.id} ha sido creada`,
+              'success'
+            );
           };
-          // alert(`Orden con el id: ${response.id} ha sido creada`);
           mostrarIdOrden();
           updateStocks(db);
         })
@@ -81,7 +88,7 @@ const Cart = () => {
             updateStocks();
           })
           .then(() => {
-            alert('El stock de los productos ha sido actualizado');
+            console.log('El stock de los productos ha sido actualizado');
           })
           .catch((error) => console.log(error));
       });
